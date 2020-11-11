@@ -1,0 +1,27 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Upcoming Events</title>
+	</head>
+	<body>
+		{% if events_list %}
+		<ul>
+			{% for event in events_list %}
+			<span style="font-size:14px">
+				<span style="font-family:arial,helvetica neue,helvetica,sans-serif">
+					{{ forloop.counter }}. <strong>{{ event.name }}</strong>
+				</span>
+			</span>
+			<span style="font-size:13px">
+				<em>
+					{{ event.date|date:"l, F jS" }}, {{ event.time }}<br />
+					{{ event.location }}
+				</em>
+			</span>
+			{% endfor %}
+		</ul>
+		{% else %}
+		<p>We currently don't have events planned - check back later!</p>
+		{% endif %}
+	</body>
+</html>
